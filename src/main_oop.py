@@ -1,6 +1,6 @@
-
 class Product:
     """Класс для описания товара в магазине."""
+
     name: str
     description: str
     price: float
@@ -15,6 +15,7 @@ class Product:
 
 class Category:
     """Класс для категорий товаров в магазине."""
+
     name: str
     description: str
     products: list
@@ -27,8 +28,6 @@ class Category:
         self.products = products if products else []
         Category.category_count += 1
         Category.product_count += len(products) if products else 0
-
-
 
 
 # if __name__ == "__main__":

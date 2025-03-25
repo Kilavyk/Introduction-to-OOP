@@ -1,13 +1,13 @@
 import json
 import os
 
-from src.main_oop import Product, Category
+from src.main_oop import Category, Product
 
 
 def read_json() -> list:
     """Читает JSON-файл и возвращает данные виде списка словарей"""
     full_path = os.path.abspath("../data/products.json")
-    with open(full_path, 'r', encoding="UTF-8") as file:
+    with open(full_path, "r", encoding="UTF-8") as file:
         data = json.load(file)
     return data
 
@@ -22,7 +22,6 @@ def create_objects_from_json(data: list) -> list:
         item["products"] = product
         category.append(Category(**item))
     return category
-
 
 
 # if __name__ == "__main__":

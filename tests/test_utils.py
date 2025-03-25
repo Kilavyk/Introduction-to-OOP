@@ -1,7 +1,7 @@
-from unittest.mock import patch, mock_open
+from unittest.mock import mock_open, patch
 
 from src.main_oop import Category
-from src.utils import read_json, create_objects_from_json
+from src.utils import create_objects_from_json, read_json
 
 
 @patch("builtins.open", new_callable=mock_open)
