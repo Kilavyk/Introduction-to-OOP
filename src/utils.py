@@ -25,25 +25,23 @@ def create_objects_from_json(data: list) -> list:
 
 
 
-if __name__ == "__main__":
-    # Чтение данных
-    data = read_json()
-    print(data)
-
-    # Создание объектов
-    class_data = create_objects_from_json(data)
-    print(class_data)
-
-    # Вывод полученных данных
-    print(class_data[0].name)
-    print(class_data[0].description)
-    print(class_data[0].products[0].name)
-    print(class_data[0].products[0].description)
-    print(class_data[0].products[0].price)
-    print(class_data[0].products[0].quantity)
-
-    print(class_data[1].name)
-    print(class_data[1].description)
-    print(class_data[1])
-
-
+# if __name__ == "__main__":
+#     # Чтение данных
+#     data = read_json()
+#     print(data)
+#
+#     # Создание объектов
+#     class_data = create_objects_from_json(data)
+#     print(class_data)
+#
+#     # Вывод полученных данных
+#     print(class_data[0].name)
+#     print(class_data[0].description)
+#     print(class_data[0].products[0].name)
+#     print(class_data[0].products[0].description)
+#     print(class_data[0].products[0].price)
+#     print(class_data[0].products[0].quantity)
+#
+#     print(class_data[1].name)
+#     print(class_data[1].description)
+#     print(class_data[1])
