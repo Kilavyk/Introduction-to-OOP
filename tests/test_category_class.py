@@ -1,3 +1,7 @@
+from src.category_class import Category
+from src.product_class import Product
+
+
 def test_category_init(first_category, second_category):
     assert first_category.name == "Samsung"
     assert first_category.description == "Смартфоны"
@@ -12,3 +16,10 @@ def test_category_init(first_category, second_category):
 
     assert first_category.product_count == 3
     assert second_category.product_count == 3
+
+
+def test_add_product(first_category):
+    assert len(first_category.products) == 2
+    new_product = Product("Samsung Galaxy S22", "128GB, Black", 120000.0, 7)
+    first_category.add_product(new_product)
+    assert len(first_category.products) == 3
