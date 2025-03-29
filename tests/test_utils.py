@@ -1,6 +1,6 @@
 from unittest.mock import mock_open, patch
 
-from src.main_oop import Category
+from src.category_class import Category
 from src.utils import create_objects_from_json, read_json
 
 
