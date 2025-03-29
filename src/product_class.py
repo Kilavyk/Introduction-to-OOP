@@ -13,7 +13,7 @@ class Product:
         self.quantity = quantity
 
     @classmethod
-    def new_product(cls, new_product: dict):
+    def new_product(cls, new_product: dict) -> "Product":
         return cls(new_product["name"], new_product["description"], new_product["price"], new_product["quantity"])
 
     @property
