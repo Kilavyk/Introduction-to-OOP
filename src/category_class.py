@@ -1,3 +1,6 @@
+from src.product_class import Product
+
+
 class Category:
     """Класс для категорий товаров в магазине."""
 
@@ -16,7 +19,9 @@ class Category:
         Category.product_count += len(products) if products else 0
 
     def add_product(self, product) -> None:
-        """Добавляет товар в категорию"""
+        """Добавляет товар в категорию с проверкой."""
+        if not isinstance(product, Product):
+            raise TypeError(f"Ожидается Product, получен {type(product).__name__}")
         self.__products.append(product)
         Category.product_count += 1
 
