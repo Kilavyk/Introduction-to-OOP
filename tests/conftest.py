@@ -46,3 +46,10 @@ def sample_json_data():
             ]
         }
     ]
+
+@pytest.fixture
+def sample_products_for_add():
+    """Фикстура для тестирования сложения продуктов (__add__)."""
+    product1 = Product("Product 1", "Description 1", 1000.0, 3)
+    product2 = Product("Product 2", "Description 2", 2000.0, 2)
+    return product1, product2
