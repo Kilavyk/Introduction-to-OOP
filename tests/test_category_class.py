@@ -30,3 +30,6 @@ def test_add_product(first_category):
     with pytest.raises(TypeError) as excinfo:
         first_category.add_product("string_product")
     assert "Ожидается Product, получен str" in str(excinfo.value)
+
+def test_category_str(first_category):
+    assert str(first_category) == "Samsung, количество продуктов: 2 шт."
