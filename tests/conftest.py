@@ -1,7 +1,7 @@
 import pytest
 
 from src.category_class import Category
-from src.product_class import Product
+from src.product_class import Product, Smartphone, LawnGrass
 
 
 @pytest.fixture
@@ -53,3 +53,24 @@ def sample_products_for_add():
     product1 = Product("Product 1", "Description 1", 1000.0, 3)
     product2 = Product("Product 2", "Description 2", 2000.0, 2)
     return product1, product2
+
+@pytest.fixture
+def smartphone():
+    smartphone = Smartphone("iPhone 15", "512GB", 210000.0, 8, efficiency=98.2, model="15", memory=512, color="Gray")
+    return smartphone
+
+@pytest.fixture
+def lawn_grass():
+    lawn_grass = LawnGrass("Трава", "Элитная", 500.0, 20, country="Россия", germination_period="7 дней", color="Зеленый")
+    return lawn_grass
+
+@pytest.fixture
+def another_smartphone():
+    another_smartphone = Smartphone("Samsung S24", "256GB", 180000.0, 5, efficiency=95.0, model="S24", memory=256, color="Black")
+    return another_smartphone
+
+@pytest.fixture
+def another_lawn_grass():
+    another_lawn_grass = LawnGrass("Трава Premium", "Устойчивая", 700.0, 15, country="USA", germination_period="10 дней", color="Dark Green")
+    return another_lawn_grass
+
