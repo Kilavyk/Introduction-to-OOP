@@ -1,5 +1,5 @@
 from src.category_class import Category
-from src.product_class import Product, Smartphone, LawnGrass
+from src.product_class import LawnGrass, Product, Smartphone
 
 if __name__ == '__main__':
     # lesson 16.1
