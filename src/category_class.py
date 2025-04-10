@@ -23,7 +23,7 @@ class Category:
         return f"{self.name}, количество продуктов: {len(self.__products)} шт."
 
     def add_product(self, product) -> None:
-        """Добавляет товар в категорию с проверкой."""
+        """Добавляет товар (или его наследника) в категорию."""
         if not isinstance(product, Product):
             raise TypeError(f"Ожидается Product, получен {type(product).__name__}")
         self.__products.append(product)

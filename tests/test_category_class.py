@@ -33,3 +33,20 @@ def test_add_product(first_category):
 
 def test_category_str(first_category):
     assert str(first_category) == "Samsung, количество продуктов: 2 шт."
+
+def test_add_smartphone_to_category(first_category, smartphone):
+    initial_count = len(first_category.products)
+    first_category.add_product(smartphone)
+    assert len(first_category.products) == initial_count + 1
+    assert "iPhone 15" in str(first_category.products)
+
+def test_add_lawn_grass_to_category(first_category, lawn_grass):
+    initial_count = len(first_category.products)
+    first_category.add_product(lawn_grass)
+    assert len(first_category.products) == initial_count + 1
+    assert "Трава" in str(first_category.products)
+
+def test_add_invalid_type_to_category(first_category):
+    with pytest.raises(TypeError) as excinfo:
+        first_category.add_product({"name": "Not a product"})
+    assert "Ожидается Product, получен dict" in str(excinfo.value)

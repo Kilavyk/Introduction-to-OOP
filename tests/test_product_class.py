@@ -59,3 +59,23 @@ def test_product_add(sample_products_for_add):
     total_value = product1 + product2
     expected_value = (1000.0 * 3) + (2000.0 * 2)
     assert total_value == expected_value
+
+def test_smartphone_init(smartphone):
+    assert smartphone.name == "iPhone 15"
+    assert smartphone.memory == 512
+    assert smartphone.color == "Gray"
+    assert isinstance(smartphone, Product)
+
+def test_lawn_grass_init(lawn_grass):
+    assert lawn_grass.country == "Россия"
+    assert lawn_grass.germination_period == "7 дней"
+    assert isinstance(lawn_grass, Product)
+
+def test_add_smartphones(smartphone, another_smartphone):
+    total = smartphone + another_smartphone
+    assert total == (210000.0 * 8) + (180000.0 * 5)
+
+def test_add_lawn_grass(lawn_grass, another_lawn_grass):
+    total = lawn_grass + another_lawn_grass
+    assert total == (500.0 * 20) + (700.0 * 15)
+

@@ -18,7 +18,10 @@ class Product:
         return f"{self.name}, {self.price} руб. Остаток: {self.quantity} шт."
 
     def __add__(self, other):
-        return self.price * self.quantity + other.price * other.quantity
+        """Сложение двух продуктов."""
+        if type(other) is Product:
+            return self.price * self.quantity + other.price * other.quantity
+        raise TypeError
 
     @classmethod
     def new_product(cls, new_product: dict) -> "Product":
@@ -42,3 +45,45 @@ class Product:
                     self.__price = new_price
             else:
                 self.__price = new_price
+
+
+class Smartphone(Product):
+    """Класс для товаров категории 'Смартфоны'."""
+
+    efficiency: str
+    model: str
+    memory: str
+    color: str
+
+    def __init__(self, name, description, price, quantity, efficiency, model, memory, color):
+        """Сложение двух смартфонов."""
+        super().__init__(name, description, price, quantity)
+        self.efficiency = efficiency
+        self.model = model
+        self.memory = memory
+        self.color = color
+
+    def __add__(self, other):
+        if type(other) is Smartphone:
+            return self.price * self.quantity + other.price * other.quantity
+        raise TypeError
+
+
+class LawnGrass(Product):
+    """Класс для товаров категории 'Газонная трава'."""
+
+    country: str
+    germination_period: str
+    color: str
+
+    def __init__(self, name, description, price, quantity, country, germination_period, color):
+        super().__init__(name, description, price, quantity)
+        self.country = country
+        self.germination_period = germination_period
+        self.color = color
+
+    def __add__(self, other):
+        """Сложение двух упаковок газонной травы."""
+        if type(other) is LawnGrass:
+            return self.price * self.quantity + other.price * other.quantity
+        raise TypeError
