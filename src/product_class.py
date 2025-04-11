@@ -1,4 +1,8 @@
-class Product:
+from src.base_product_class import BaseProduct
+from src.repr_mixin_class import ReprMixin
+
+
+class Product(ReprMixin, BaseProduct, ):
     """Класс для описания товара в магазине."""
 
     name: str
@@ -8,10 +12,8 @@ class Product:
 
     def __init__(self, name, description, price, quantity):
         """Инициализация товара."""
-        self.name = name
-        self.description = description
-        self.__price = price
-        self.quantity = quantity
+        super().__init__(name, description, price, quantity)
+        self.__price = price  # Приватный атрибут
 
     def __str__(self):
         """Строковое представление продукта."""
@@ -19,7 +21,7 @@ class Product:
 
     def __add__(self, other):
         """Сложение двух продуктов."""
-        if type(other) is Product:
+        if isinstance(other, Product):
             return self.price * self.quantity + other.price * other.quantity
         raise TypeError
 
@@ -56,7 +58,7 @@ class Smartphone(Product):
     color: str
 
     def __init__(self, name, description, price, quantity, efficiency, model, memory, color):
-        """Сложение двух смартфонов."""
+        """Инициализация смартфона."""
         super().__init__(name, description, price, quantity)
         self.efficiency = efficiency
         self.model = model
@@ -64,6 +66,7 @@ class Smartphone(Product):
         self.color = color
 
     def __add__(self, other):
+        """Сложение двух смартфонов."""
         if type(other) is Smartphone:
             return self.price * self.quantity + other.price * other.quantity
         raise TypeError
