@@ -1,4 +1,4 @@
-from src.product_class import Product, Smartphone, LawnGrass
+from src.product_class import LawnGrass, Product, Smartphone
 
 
 def test_product_init(product):

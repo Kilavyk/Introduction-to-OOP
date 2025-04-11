@@ -2,7 +2,10 @@ from src.base_product_class import BaseProduct
 from src.repr_mixin_class import ReprMixin
 
 
-class Product(ReprMixin, BaseProduct, ):
+class Product(
+    ReprMixin,
+    BaseProduct,
+):
     """Класс для описания товара в магазине."""
 
     name: str

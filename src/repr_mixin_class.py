@@ -8,6 +8,6 @@ class ReprMixin:
     def __repr__(self):
         attrs = []
         for attr, value in self.__dict__.items():
-            if not attr.startswith('_'):
+            if not attr.startswith("_"):
                 attrs.append(f"'{value}'")
         return f"{self.__class__.__name__}({', '.join(attrs)})"
