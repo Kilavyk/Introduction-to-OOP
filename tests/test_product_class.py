@@ -1,4 +1,4 @@
-from src.product_class import Product
+from src.product_class import LawnGrass, Product, Smartphone
 
 
 def test_product_init(product):
@@ -79,3 +79,16 @@ def test_add_lawn_grass(lawn_grass, another_lawn_grass):
     total = lawn_grass + another_lawn_grass
     assert total == (500.0 * 20) + (700.0 * 15)
 
+def test_repr_mixin_functionality(capsys):
+    """Тестируем вывод информации при создании объекта"""
+    p = Product("Test", "Desc", 100, 5)
+    captured = capsys.readouterr()
+    assert "Product('Test', 'Desc', '5')" in captured.out
+
+    s = Smartphone("iPhone 15", "512GB", 210000.0, 8, efficiency=98.2, model="15", memory=512, color="Gray")
+    captured = capsys.readouterr()
+    assert "Smartphone('iPhone 15', '512GB', '8')" in captured.out
+
+    LawnGrass("Трава", "Элитная", 500.0, 20, country="Россия", germination_period="7 дней", color="Зеленый")
+    captured = capsys.readouterr()
+    assert "LawnGrass('Трава', 'Элитная', '20')" in captured.out
