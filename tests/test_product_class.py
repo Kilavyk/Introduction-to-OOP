@@ -1,3 +1,5 @@
+import pytest
+
 from src.product_class import LawnGrass, Product, Smartphone
 
 
@@ -92,3 +94,8 @@ def test_repr_mixin_functionality(capsys):
     LawnGrass("Трава", "Элитная", 500.0, 20, country="Россия", germination_period="7 дней", color="Зеленый")
     captured = capsys.readouterr()
     assert "LawnGrass('Трава', 'Элитная', '20')" in captured.out
+
+def test_zero_quantity_raises_error():
+    with pytest.raises(ValueError) as excinfo:
+        Product("Бракованный товар", "Неверное количество", 1000.0, 0)
+    assert "Товар с нулевым количеством не может быть добавлен" in str(excinfo.value)

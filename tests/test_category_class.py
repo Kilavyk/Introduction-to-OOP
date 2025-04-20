@@ -50,3 +50,10 @@ def test_add_invalid_type_to_category(first_category):
     with pytest.raises(TypeError) as excinfo:
         first_category.add_product({"name": "Not a product"})
     assert "Ожидается Product, получен dict" in str(excinfo.value)
+
+def test_middle_price_with_products(first_category):
+    assert first_category.middle_price() == (180000.0 + 250000.0) / 2
+
+def test_middle_price_empty_category():
+    empty_category = Category("Test", "Test category", [])
+    assert empty_category.middle_price() == 0
