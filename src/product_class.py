@@ -15,6 +15,8 @@ class Product(
 
     def __init__(self, name, description, price, quantity):
         """Инициализация товара."""
+        if quantity == 0:
+            raise ValueError("Товар с нулевым количеством не может быть добавлен")
         super().__init__(name, description, price, quantity)
         self.__price = price  # Приватный атрибут
 

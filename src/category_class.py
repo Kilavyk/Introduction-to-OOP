@@ -33,3 +33,17 @@ class Category:
     def products(self) -> list:
         """Геттер для получения форматированного списка товаров."""
         return [str(product) for product in self.__products]
+
+    def middle_price(self) -> float:
+        """Подсчитывает средний ценник всех товаров в категории."""
+
+        if not self.__products:
+            return 0.0
+
+        total_price = 0.0
+        for product in self.__products:
+            total_price += product.price
+
+        average_price = total_price / len(self.__products)
+
+        return average_price
